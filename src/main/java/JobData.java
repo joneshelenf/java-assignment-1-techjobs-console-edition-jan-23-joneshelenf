@@ -48,8 +48,8 @@ public class JobData {
         return values;
     }
 
-    private static void loadData() {
-    }
+//    private static void loadData() {
+//    }
 
 
     public static ArrayList<HashMap<String, String>> findAll() {
@@ -90,7 +90,7 @@ public class JobData {
                     jobs.add(row);
                 }
             }
-
+        }
             return jobs;
         }
 
@@ -106,9 +106,9 @@ public class JobData {
         loadData();
 
             // TODO - implement this method
-        return null;
+//        return null;
 
-            ArrayList<HashMap<String, String>> jobs = new ArrayList<>() {
+            ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs){
 
@@ -120,7 +120,7 @@ public class JobData {
                     }
                 }
         return jobs;
-            };
+
 
     /**
      * Read in data from a CSV file and store it in a list
