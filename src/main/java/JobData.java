@@ -48,6 +48,9 @@ public class JobData {
         return values;
     }
 
+    private static void loadData() {
+    }
+
 
     public static ArrayList<HashMap<String, String>> findAll() {
 
@@ -83,12 +86,13 @@ public class JobData {
             String aValue = row.get(column);
 
             if (aValue.contains(value)) {
-                jobs.add(row);
+                if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobs.add(row);
+                }
             }
-        }
 
-        return jobs;
-    }
+            return jobs;
+        }
 
     /**
      * Search all columns for the given term
@@ -96,27 +100,27 @@ public class JobData {
      * @param value The search term to look for
      * @return      List of all jobs with at least one field containing the value
      */
-    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        //return null;
+            // TODO - implement this method
+        return null;
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+            ArrayList<HashMap<String, String>> jobs = new ArrayList<>() {
 
         for (HashMap<String, String> row : allJobs){
 
-            for (String val : row.values()) {
+                    for (String val : row.values()) {
 
-                if (val.toLowerCase().contains(value.toLowerCase())) {
-                    jobs.add(row);
+                        if (val.toLowerCase().contains(value.toLowerCase())) {
+                            jobs.add(row);
+                        }
+                    }
                 }
-            }
-        }
         return jobs;
-    }
+            };
 
     /**
      * Read in data from a CSV file and store it in a list
